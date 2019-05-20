@@ -8,11 +8,11 @@ const AddFinance: React.FC<AddFinanceProps> = ({onAddFinance}) => {
     const [name, setName] = React.useState<string>("");
     const [amount, setAmount] = React.useState<string>("");
     const [type, setType] = React.useState<string>("income");
-        
+  
     return (
         <form 
             className={styles.Form} 
-            onSubmit={() => onAddFinance({name, amount, type})}>
+            onSubmit={ (evt) => { evt.preventDefault(); onAddFinance({name, amount, type})} }>
             <div>
                 <label>Name:</label>
                 <input 

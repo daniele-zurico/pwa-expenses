@@ -7,8 +7,9 @@ import { useExpenses } from '../../../common/ExpensesContext';
 type expense = {name: string;amount: string;type: string;}
 const Summary: React.FC<{total: number}> = ({total}) => {
     const {expenses, loadExpenses} = useExpenses();
-    loadExpenses();
-
+    React.useEffect(() => {
+        loadExpenses()}, 
+    []);
     const buildRow = expenses.map((value: expense, index: number) => {
         return (
             <tr key={index}>

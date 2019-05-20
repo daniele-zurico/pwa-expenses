@@ -2,15 +2,16 @@ import React from 'react'
 import styles from './MonthlyFinance.module.scss';
 import AddFinance from './add-finance/AddFinance';
 import Summary from './summary/Summary';
+import { useExpenses } from '../../common/ExpensesContext';
 
 type expense = {name: string;amount: string;type: string;}
 
 const MonthlyFinance = () => {
-    const [summary, setSummary] = React.useState<expense[]>([]);
+    const {expenses, setExpenses} = useExpenses();
     const [total, setTotal] = React.useState(0);
     const financeAdded = (value: expense) => {
-        const newSummary = [...summary, value];
-        setSummary(newSummary);
+        const newSummary = [...expenses, value];
+        setExpenses(newSummary);
         const newTotal = value.type === 'income' ? (total + parseFloat(value.amount)) : (total - parseFloat(value.amount));
         setTotal(newTotal);
     }
