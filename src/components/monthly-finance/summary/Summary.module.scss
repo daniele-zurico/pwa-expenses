@@ -1,0 +1,55 @@
+.Table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th {
+    color: #E91E63;
+}
+td {
+    color: dimgray;
+}
+  
+tr:nth-child(even) {
+    background-color: #edebeb;
+}
+.Total {
+    text-align: right;
+    font-weight: bold;
+    .Amount {
+        color: #E91E63;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+}
+
+.IconIncomeOutcome {
+    margin-right: '2px';
+    margin-bottom: '1px';
+}
+.IconTotal {
+    margin-right: 2px;
+    margin-bottom: 1px;
+}
+.IconMinus {
+    margin-right: 2px;
+    margin-bottom: 1px;
+    color: #FF9800;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.IconPlus {
+    margin-right: 5px;
+    margin-bottom: 1px;
+    color: #FF9800; 
+    font-weight: bold;
+    cursor: pointer;
+}
+
