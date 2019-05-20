@@ -7,11 +7,12 @@ import { useExpenses } from '../../common/ExpensesContext';
 type expense = {name: string;amount: string;type: string;}
 
 const MonthlyFinance = () => {
-    const {expenses, setExpenses} = useExpenses();
+    const {expenses, setExpenses, saveExpense} = useExpenses();
     const [total, setTotal] = React.useState(0);
     const financeAdded = (value: expense) => {
         const newSummary = [...expenses, value];
         setExpenses(newSummary);
+        saveExpense(value.name, parseFloat(value.amount), value.type);
         const newTotal = value.type === 'income' ? (total + parseFloat(value.amount)) : (total - parseFloat(value.amount));
         setTotal(newTotal);
     }

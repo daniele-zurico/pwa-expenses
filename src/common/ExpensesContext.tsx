@@ -1,5 +1,5 @@
 import React from "react";
-import { readDocument } from "./data";
+import { readDocument, saveDocument } from "./data";
 type expense = {name: string;amount: string;type: string;}
 
 const ExpensesContext = React.createContext<any>([]);
@@ -15,8 +15,21 @@ const useExpenses = () => {
         const res: any = await readDocument('expenses');
         return setExpenses(res.expenses);
     }
+
+    const saveExpense = async (name: string, amount: number, type: string) => {
+        const res = await saveDocument({
+            _id: 'expenses',
+            expenses: [{
+                id: new Date().getTime() + '',
+                name,
+                amount,
+                type
+            }]
+        });
+        return res;
+    }
     return {
-        expenses, setExpenses, loadExpenses
+        expenses, setExpenses, loadExpenses, saveExpense
     };      
 }
 

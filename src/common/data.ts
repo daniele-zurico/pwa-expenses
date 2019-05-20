@@ -12,15 +12,8 @@ const initialiseDb = async() => {
     
 }
 
-const saveDocument = (obj: any, option?: any) => {
-    db.put(obj, option, (error: any, response: any) => {
-        if (error) {
-          console.error('Something went wrong when you tried to save the data: ' + error);
-          return error;
-        } else if(response && response.ok) {
-          return response;
-        }
-    });
+const saveDocument = async (obj: any) => {
+  await db.put(obj);
 }
 
 const readDocument = async(docId: string) => {
@@ -29,44 +22,25 @@ const readDocument = async(docId: string) => {
 
 // to remove
 const savenote = function() {
-    var o = {
-        _id: 'expenses',
-        expenses: [{
-            id: 1,
-            name: 'bb',
-            amount: 123,
-            type: 'income'
-        }]
-    };
+  var o = {
+      _id: 'expenses',
+      expenses: [{
+          id: 1,
+          name: 'bb',
+          amount: 123,
+          type: 'income'
+      }]
+  };
 
-    var o2 = {
-        _id: 'history',
-        expenses: [{
-            id: 2,
-            name: 'bb2',
-            amount: 153,
-            type: 'income'
-        }]
-    };
+  db.put(o, null, function(error: any, response: any) {
+    if (error) {
+      console.error('Something went wrong when you tried to save the data: ' + error);
+      return;
+    } else if(response && response.ok) {
+      console.info('new data stored: ' + response);
 
-    db.put(o, null, function(error: any, response: any) {
-      if (error) {
-        console.error('Something went wrong when you tried to save the data: ' + error);
-        return;
-      } else if(response && response.ok) {
-        console.info('new data stored: ' + response);
-
-      }
-    });
-    db.put(o2, null, function(error: any, response: any) {
-        if (error) {
-          console.error('Something went wrong when you tried to save the data: ' + error);
-          return;
-        } else if(response && response.ok) {
-          console.info('new data stored: ' + response);
-  
-        }
-      });
+    }
+  });
 }
 
 export {db, initialiseDb, saveDocument, readDocument};

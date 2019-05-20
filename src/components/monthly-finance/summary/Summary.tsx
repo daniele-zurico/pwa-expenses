@@ -8,8 +8,8 @@ type expense = {name: string;amount: string;type: string;}
 const Summary: React.FC<{total: number}> = ({total}) => {
     const {expenses, loadExpenses} = useExpenses();
     React.useEffect(() => {
-        loadExpenses()}, 
-    []);
+        loadExpenses()
+    }, []);
     const buildRow = expenses.map((value: expense, index: number) => {
         return (
             <tr key={index}>
