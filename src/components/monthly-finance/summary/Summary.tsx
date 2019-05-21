@@ -5,11 +5,18 @@ import { faPlus, faCaretUp, faPlusCircle, faMinusCircle, faCaretDown } from '@fo
 import { useExpenses } from '../../../common/ExpensesContext';
 
 type expense = {name: string;amount: string;type: string;}
-const Summary: React.FC<{total: number}> = ({total}) => {
+const Summary: React.FC = () => {
     const {expenses, loadExpenses} = useExpenses();
-    React.useEffect(() => {
-        loadExpenses()
-    }, []);
+    React.useEffect(() => {loadExpenses()}, []);
+
+    const calculateTotal = (expenses: any) => {
+        let result = 0;
+        expenses.forEach((value: expense) => {
+            result = value.type === 'income' ? (result + parseFloat(value.amount)) : (result - parseFloat(value.amount));
+        });
+        return result;
+    }
+
     const buildRow = expenses.map((value: expense, index: number) => {
         return (
             <tr key={index}>
@@ -59,7 +66,7 @@ const Summary: React.FC<{total: number}> = ({total}) => {
                             icon={faPlus} 
                             size="sm" 
                             className={styles.IconTotal}/>
-                        £{total}
+                        {calculateTotal(expenses)} £
                     </span>
                 </td>
             </tr>
@@ -69,3 +76,5 @@ const Summary: React.FC<{total: number}> = ({total}) => {
 }
 
 export default Summary;
+
+

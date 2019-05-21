@@ -5,25 +5,24 @@
 }
   
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid white;
     text-align: left;
     padding: 8px;
 }
 th {
-    color: #E91E63;
+    color: #2196F3;
+    font-weight: normal;
 }
-td {
-    color: dimgray;
-}
+
   
 tr:nth-child(even) {
-    background-color: #edebeb;
+    background-color: #0808081a;
 }
 .Total {
     text-align: right;
     font-weight: bold;
     .Amount {
-        color: #E91E63;
+        color: #2196F3;
         font-weight: bold;
         margin-left: 10px;
     }
@@ -40,7 +39,7 @@ tr:nth-child(even) {
 .IconMinus {
     margin-right: 2px;
     margin-bottom: 1px;
-    color: #FF9800;
+    color: #009688;
     font-weight: bold;
     cursor: pointer;
 }
@@ -48,7 +47,7 @@ tr:nth-child(even) {
 .IconPlus {
     margin-right: 5px;
     margin-bottom: 1px;
-    color: #FF9800; 
+    color: #009688; 
     font-weight: bold;
     cursor: pointer;
 }

@@ -17,30 +17,7 @@ const saveDocument = async (obj: any) => {
 }
 
 const readDocument = async(docId: string) => {
-    return await db.get(docId).then(res => res);
+    return await db.get(docId);
 }
 
-// to remove
-const savenote = function() {
-  var o = {
-      _id: 'expenses',
-      expenses: [{
-          id: 1,
-          name: 'bb',
-          amount: 123,
-          type: 'income'
-      }]
-  };
-
-  db.put(o, null, function(error: any, response: any) {
-    if (error) {
-      console.error('Something went wrong when you tried to save the data: ' + error);
-      return;
-    } else if(response && response.ok) {
-      console.info('new data stored: ' + response);
-
-    }
-  });
-}
-
-export {db, initialiseDb, saveDocument, readDocument};
+export {initialiseDb, saveDocument, readDocument};
