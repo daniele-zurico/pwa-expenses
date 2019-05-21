@@ -29,19 +29,14 @@ const useExpenses = () => {
                 _id: 'expenses',
                 _rev: doc._rev,
                 expenses: [...doc.expenses, newExpense]
-            }).then(()=> {
-                debugger
-                return setExpenses(() => [...expenses, newExpense]);
-            });
+            }).then(()=> setExpenses(() => [...expenses, newExpense]));
         }).catch((err) => {
             // document do not exist so I create a new one
             if(err.status === 404) {
                 return saveDocument({
                     _id: 'expenses',
                     expenses: [newExpense]
-                }).then(() => {
-                    return setExpenses(() => [...expenses, newExpense]);
-                });
+                }).then(() => setExpenses(() => [...expenses, newExpense]));
             } else {
                 return err;
             }
