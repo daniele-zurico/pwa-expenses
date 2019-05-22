@@ -8,10 +8,8 @@ type expense = {name: string;amount: string;type: string;}
 
 const MonthlyFinance = () => {
     const {saveExpense} = useExpenses();
-    
     const financeAdded = (value: expense) => {
-        saveExpense(value.name, parseFloat(value.amount), value.type);
-        
+        saveExpense(value.name, parseFloat(value.amount), value.type);  
     }
 
   return (
@@ -22,7 +20,6 @@ const MonthlyFinance = () => {
       <div className={styles.Summary}>
         <Summary/>
       </div>
-      
     </div>
   )
 }

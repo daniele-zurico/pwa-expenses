@@ -42,6 +42,7 @@ const useExpenses = () => {
             }
         });
     }
+    
     return {
         expenses, setExpenses, loadExpenses, saveExpense
     };      
