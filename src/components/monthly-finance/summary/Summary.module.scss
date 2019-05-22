@@ -3,24 +3,28 @@
     border-collapse: collapse;
     width: 100%;
 }
-  
-td, th {
+
+td,
+th {
     border: 1px solid white;
     text-align: left;
     padding: 8px;
 }
+
 th {
     color: #2196F3;
     font-weight: normal;
 }
 
-  
+
 tr:nth-child(even) {
     background-color: #0808081a;
 }
+
 .Total {
     text-align: right;
     font-weight: bold;
+
     .Amount {
         color: #2196F3;
         font-weight: bold;
@@ -32,10 +36,12 @@ tr:nth-child(even) {
     margin-right: '2px';
     margin-bottom: '1px';
 }
+
 .IconTotal {
     margin-right: 2px;
     margin-bottom: 1px;
 }
+
 .IconMinus {
     margin-right: 2px;
     margin-bottom: 1px;
@@ -47,8 +53,7 @@ tr:nth-child(even) {
 .IconPlus {
     margin-right: 5px;
     margin-bottom: 1px;
-    color: #009688; 
+    color: #009688;
     font-weight: bold;
     cursor: pointer;
 }
-

@@ -1,44 +1,48 @@
 .PopOver {
 	width: 100%;
 	background: #F44336;
-    visibility: hidden;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
+	visibility: hidden;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
 }
 
-.SlideDown{
+.SlideDown {
 	animation-name: slideDown;
-	-webkit-animation-name: slideDown;	
+	-webkit-animation-name: slideDown;
 
-	animation-duration: 1s;	
+	animation-duration: 1s;
 	-webkit-animation-duration: 1s;
 
-	animation-timing-function: ease;	
-	-webkit-animation-timing-function: ease;	
-    display: flex;
-	visibility: visible !important;						
+	animation-timing-function: ease;
+	-webkit-animation-timing-function: ease;
+	display: flex;
+	visibility: visible !important;
 }
 
 @keyframes slideDown {
 	0% {
 		transform: translateY(-100%);
 	}
-	50%{
+
+	50% {
 		transform: translateY(8%);
 	}
-	65%{
+
+	65% {
 		transform: translateY(-4%);
 	}
-	80%{
+
+	80% {
 		transform: translateY(4%);
 	}
-	95%{
+
+	95% {
 		transform: translateY(-2%);
-	}			
+	}
+
 	100% {
 		transform: translateY(0%);
-	}		
+	}
 }
-
